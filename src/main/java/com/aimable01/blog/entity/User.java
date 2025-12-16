@@ -48,7 +48,6 @@ public class User implements UserDetails {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    // posts and comments relations to be implemented later
     @OneToMany(mappedBy = "author", cascade =  CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts;
 
