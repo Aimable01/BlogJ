@@ -49,6 +49,11 @@ public class User implements UserDetails {
     private LocalDateTime updatedAt;
 
     // posts and comments relations to be implemented later
+    @OneToMany(mappedBy = "author", cascade =  CascadeType.ALL, orphanRemoval = true)
+    private List<Post> posts;
+
+    @OneToMany(mappedBy = "user", cascade =  CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
 
     @PrePersist
     protected void onCreate() {
